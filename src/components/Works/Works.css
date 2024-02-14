@@ -59,7 +59,7 @@
 .card::after {
   content: "";
   position: absolute;
-  inset: -0.5rem;
+  inset: -0.2rem;
   z-index: -1;
   background: conic-gradient(
     from var(--gradient-angle),
