@@ -19,24 +19,79 @@
   font-weight: 400;
   max-width: 45rem;
   padding: 0 2rem;
+  margin-bottom: 2rem;
 }
 .worksImgs {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
   width: 100vw;
   max-width: 65rem;
 }
 .worksImg {
   object-fit: scale-down;
-  height: 20rem;
-  width: 16rem;
-  margin: 0.5rem;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+:root {
+  --clr-1: #052b2f;
+  --clr-2: #073438;
+  --clr-3: #0e4b50;
+  --clr-4: #2d8f85;
+  --clr-5: #637c54;
+}
+.card {
+  height: 18rem;
+  background: var(--clr-1);
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    rgb(33, 33, 33),
+    rgb(55, 55, 55),
+    rgb(253, 151, 31),
+    rgb(55, 55, 55),
+    rgb(33, 33, 33)
+  );
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+}
+.card::after {
+  filter: blur(3.5rem);
+}
+.card:hover {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  scale: 1.03;
+}
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .worksImg {
+  .card {
     height: 50vw;
   }
 }
