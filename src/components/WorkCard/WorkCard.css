@@ -1,0 +1,73 @@
+.WorkCardCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 22rem;
+  height: 30rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.WorkCardDesc {
+  width: 10rem;
+}
+.WorkCardTitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.WorkCardText {
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+.WorkCardImg {
+  object-fit: scale-down;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.WorkCard {
+  height: 18rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.WorkCard::before,
+.WorkCard::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    rgb(33, 33, 33),
+    rgb(55, 55, 55),
+    rgb(253, 151, 31),
+    rgb(55, 55, 55),
+    rgb(33, 33, 33)
+  );
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+}
+.WorkCard::after {
+  filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    height: 50vw;
+  }
+}
