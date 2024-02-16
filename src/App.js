@@ -6,6 +6,7 @@ import Works from "./components/Works/Works";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
+import AboutMe from "./components/AboutMe/AboutMe";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <div className="blurred-background" />
       <Navbar />
       <Intro />
+      <AboutMe />
       <Skills />
       <Works />
       <Contact />
