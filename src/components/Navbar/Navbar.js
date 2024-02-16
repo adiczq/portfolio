@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import contactImg from "../../assets/contact.png";
 import menu from "../../assets/menu.png";
 import { Link } from "react-scroll";
 
@@ -22,6 +21,17 @@ const Navbar = () => {
         </Link>
         <Link
           activeClass="active"
+          to="aboutMe"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          className="desktopMenuListItem"
+        >
+          About me
+        </Link>
+        <Link
+          activeClass="active"
           to="skills"
           spy={true}
           smooth={true}
@@ -29,7 +39,7 @@ const Navbar = () => {
           duration={500}
           className="desktopMenuListItem"
         >
-          About
+          Skills
         </Link>
         <Link
           activeClass="active"
@@ -54,17 +64,6 @@ const Navbar = () => {
           Contact
         </Link>
       </div>
-      <button
-        className="desktopMenuButton"
-        onClick={() => {
-          document
-            .getElementById("contact")
-            .scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <img src={contactImg} alt="" className="desktopMenuImg" />
-        Contact me
-      </button>
       <img
         src={menu}
         alt="Menu"
@@ -89,6 +88,18 @@ const Navbar = () => {
         </Link>
         <Link
           activeClass="active"
+          to="aboutMe"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          className="mobMenuListItem"
+          onClick={() => setShowMenu(false)}
+        >
+          About me
+        </Link>
+        <Link
+          activeClass="active"
           to="skills"
           spy={true}
           smooth={true}
@@ -97,7 +108,7 @@ const Navbar = () => {
           className="mobMenuListItem"
           onClick={() => setShowMenu(false)}
         >
-          About
+          Skills
         </Link>
         <Link
           activeClass="active"
@@ -110,18 +121,6 @@ const Navbar = () => {
           onClick={() => setShowMenu(false)}
         >
           Portfolio
-        </Link>
-        <Link
-          activeClass="active"
-          to="contactPage"
-          spy={true}
-          smooth={true}
-          offset={-20}
-          duration={500}
-          className="mobMenuListItem"
-          onClick={() => setShowMenu(false)}
-        >
-          Clients
         </Link>
         <Link
           activeClass="active"
