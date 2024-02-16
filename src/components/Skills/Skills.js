@@ -10,13 +10,7 @@ import redux from "../../assets/redux.png";
 const Skills = () => {
   return (
     <section id="skills">
-      <span className="skillTitle">What I do</span>
-      <span className="skillDesc">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-        explicabo eum distinctio nisi fugiat facilis fugit consequuntur
-        incidunt! Quae eveniet perspiciatis numquam sapiente sint? Id porro
-        corporis tenetur itaque voluptatem.
-      </span>
+      <span className="skillTitle">Skills</span>
       <div className="skillBars">
         <div className="skillBar">
           <img src={htmlCss} alt="Html and css logo" className="skillBarImg" />
