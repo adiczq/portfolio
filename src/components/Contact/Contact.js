@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
-import FacebokIcon from "../../assets/facebook-icon.png";
+import FacebokIcon from "../../assets/facebook.png";
 import TwitterIcon from "../../assets/twitter.png";
 import YouTubeIcon from "../../assets/youtube.png";
 import InstagramIcon from "../../assets/instagram.png";
+import Github from "../../assets/github-logo.png";
 
 const Contact = () => {
   const form = useRef();
@@ -65,10 +66,37 @@ const Contact = () => {
           Submit
         </button>
         <div className="links">
-          <img src={FacebokIcon} alt="Facebok Icon" className="link" />
-          <img src={TwitterIcon} alt="Twitter Icon" className="link" />
-          <img src={YouTubeIcon} alt="YouTube Icon" className="link" />
-          <img src={InstagramIcon} alt="Instagram Icon" className="link" />
+          <a href="https://github.com/adiczq" target="_blank" rel="noreferrer">
+            <img src={Github} alt="Github Icon" className="link" />
+          </a>
+          <a
+            href="https://www.facebook.com/Adiczq/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={FacebokIcon} alt="Facebok Icon" className="link" />
+          </a>
+          <a
+            href="https://twitter.com/Adiczq88"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={TwitterIcon} alt="Twitter Icon" className="link" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCdKmLsG9BfA-TFOcacs9L_w"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={YouTubeIcon} alt="YouTube Icon" className="link" />
+          </a>
+          <a
+            href="https://www.instagram.com/adiczq88/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={InstagramIcon} alt="Instagram Icon" className="link" />
+          </a>
         </div>
       </form>
     </section>
