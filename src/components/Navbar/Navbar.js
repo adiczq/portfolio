@@ -43,18 +43,18 @@ const Navbar = () => {
         </Link>
         <Link
           activeClass="active"
-          to="works"
+          to="myPortfolio"
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
           className="desktopMenuListItem"
         >
-          Portfolio
+          My Portfolio
         </Link>
         <Link
           activeClass="active"
-          to="contact"
+          to="contactPage"
           spy={true}
           smooth={true}
           offset={-50}
@@ -112,7 +112,7 @@ const Navbar = () => {
         </Link>
         <Link
           activeClass="active"
-          to="works"
+          to="myPortfolio"
           spy={true}
           smooth={true}
           offset={-50}
@@ -124,7 +124,19 @@ const Navbar = () => {
         </Link>
         <Link
           activeClass="active"
-          to="contact"
+          to="works"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          className="mobMenuListItem"
+          onClick={() => setShowMenu(false)}
+        >
+          Works
+        </Link>
+        <Link
+          activeClass="active"
+          to="contactPage"
           spy={true}
           smooth={true}
           offset={-20}
