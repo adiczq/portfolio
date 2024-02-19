@@ -33,11 +33,11 @@ const Contact = () => {
         Feel free to reach out to me via{" "}
         <a href="mailto:adiczq@gmail.com" className="email">
           email
-        </a>
-        or
+        </a>{" "}
+        or{" "}
         <a href="tel:+48515253450" className="tele">
           phone
-        </a>
+        </a>{" "}
         if you'd like to discuss potential opportunities or collaborate on
         projects. I'm always open to new challenges and opportunities for
         growth.
