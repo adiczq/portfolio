@@ -26,7 +26,9 @@
 .mobMenu {
   display: none;
   object-fit: cover;
-  height: 1.8rem;
+  height: 3rem;
+  fill: rgb(253, 151, 31);
+  stroke: #000;
 }
 .navMobMenu {
   position: absolute;
@@ -50,6 +52,7 @@
 @media screen and (max-width: 768px) {
   .navbar {
     border-radius: 0;
+    padding: 0;
     justify-content: flex-end;
   }
   .mobMenu {
