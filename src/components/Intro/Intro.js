@@ -14,10 +14,10 @@ const Intro = () => {
             <span className="world">World</span>
             <code>&frasl; &gt;</code>
           </p>
-          <span className="introText">
+          <h1 className="introText">
             I'm <span className="introName">Adrian</span> <br />
             Fullstack Developer{" "}
-          </span>
+          </h1>
           <p className="introParagraf">
             I am an aspiring full-stack programmer dedicated to continuous
             <br />
