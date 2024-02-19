@@ -28,44 +28,49 @@ const Contact = () => {
 
   return (
     <section id="contactPage">
-      <div id="contact">
-        <h1 className="contactPageTitle">Contact Me</h1>
-        <span className="contactDesc">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod cumque
-          est pariatur tempore provident sed quasi doloremque. At repellendus,
-          nobis sint quos aliquam quia. Quia architecto corrupti aperiam
-          molestiae similique?
-        </span>
-        <form className="contactForm" ref={form} onSubmit={sendEmail}>
-          <input
-            type="text"
-            className="formInputName"
-            placeholder="Your name"
-            name="from_name"
-          />
-          <input
-            type="email"
-            className="formInputEmail"
-            placeholder="Your email"
-            name="from_email"
-          />
-          <textarea
-            name="message"
-            className="formInputMsg"
-            rows="5"
-            placeholder="Your message"
-          ></textarea>
-          <button type="submit" value="Send" className="formSubmitBtn">
-            Submit
-          </button>
-          <div className="links">
-            <img src={FacebokIcon} alt="Facebok Icon" className="link" />
-            <img src={TwitterIcon} alt="Twitter Icon" className="link" />
-            <img src={YouTubeIcon} alt="YouTube Icon" className="link" />
-            <img src={InstagramIcon} alt="Instagram Icon" className="link" />
-          </div>
-        </form>
-      </div>
+      <h1 className="contactPageTitle">Contact Me</h1>
+      <span className="contactDesc">
+        Feel free to reach out to me via{" "}
+        <a href="mailto:adiczq@gmail.com" className="email">
+          email
+        </a>
+        or
+        <a href="tel:+48515253450" className="tele">
+          phone
+        </a>
+        if you'd like to discuss potential opportunities or collaborate on
+        projects. I'm always open to new challenges and opportunities for
+        growth.
+      </span>
+      <form className="contactForm" ref={form} onSubmit={sendEmail}>
+        <input
+          type="text"
+          className="formInputName"
+          placeholder="Your name"
+          name="from_name"
+        />
+        <input
+          type="email"
+          className="formInputEmail"
+          placeholder="Your email"
+          name="from_email"
+        />
+        <textarea
+          name="message"
+          className="formInputMsg"
+          rows="5"
+          placeholder="Your message"
+        ></textarea>
+        <button type="submit" value="Send" className="formSubmitBtn">
+          Submit
+        </button>
+        <div className="links">
+          <img src={FacebokIcon} alt="Facebok Icon" className="link" />
+          <img src={TwitterIcon} alt="Twitter Icon" className="link" />
+          <img src={YouTubeIcon} alt="YouTube Icon" className="link" />
+          <img src={InstagramIcon} alt="Instagram Icon" className="link" />
+        </div>
+      </form>
     </section>
   );
 };
