@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 import AboutMe from "./components/AboutMe/AboutMe";
+import MyPortfolio from "./components/MyPortfolio/MyPortfolio";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Intro />
       <AboutMe />
       <Skills />
+      <MyPortfolio />
       <Works />
       <Contact />
       <Footer />
