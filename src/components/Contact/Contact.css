@@ -10,13 +10,14 @@
   justify-content: center;
 }
 .contactPageTitle {
+  color: rgb(253, 151, 31);
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 .contactDesc {
   padding: 1rem;
   font-size: medium;
-  font-weight: 300;
+  font-weight: 200;
 }
 .contactForm {
   margin: 1rem;
@@ -64,4 +65,19 @@
   height: 3rem;
   width: 3rem;
   margin: 0 0.75rem;
+}
+.email {
+  text-decoration: none;
+  color: rgb(249, 38, 114);
+  font-weight: 300;
+}
+.tele {
+  text-decoration: none;
+  color: rgb(166, 226, 46);
+  font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  #contactPage {
+    margin-top: 2rem;
+  }
 }
