@@ -72,6 +72,10 @@
   }
 }
 @media screen and (max-width: 480px) {
+  .introContent {
+    padding-top: 0;
+  }
+
   .bg {
     right: -2vw;
     top: 7rem;
