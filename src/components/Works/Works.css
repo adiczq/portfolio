@@ -1,24 +1,8 @@
 #works {
-  margin: 0 auto;
-  min-height: calc(50vh - 4rem);
-  width: 100vw;
-  max-width: 60rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 1rem;
+  min-height: calc(100vh - 4rem);
 }
-.worksTitle {
-  margin: 1rem 0;
-  font-size: 3rem;
-}
-.worksDesc {
-  text-align: justify;
-  font-size: 1rem;
-  font-weight: 200;
-  max-width: 50rem;
-  padding: 0 2rem;
-  margin-bottom: 2rem;
+@media screen and (max-width: 768px) {
+  #works {
+    min-height: 100vh;
+  }
 }
