@@ -37,9 +37,9 @@ const Intro = () => {
             offset={-50}
             duration={500}
           >
-            <button className="btn">
+            <button className="introBtn">
               <svg
-                className="btnImg"
+                className="introBtnImg"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -53,7 +53,7 @@ const Intro = () => {
             </button>
           </Link>
         </div>
-        <img src={bg} alt="Profile" className="bg" />
+        <img src={bg} alt="Profile" className="portfolioImg" />
       </section>
     </div>
   );
