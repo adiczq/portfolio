@@ -6,15 +6,7 @@
   overflow: hidden;
   position: relative;
 }
-.bg {
-  position: absolute;
-  top: 20rem;
-  right: 10rem;
-  z-index: -1;
-  object-fit: cover;
-  height: 30vh;
-  border-radius: 30%;
-}
+
 .introContent {
   height: 100vh;
   width: 100vw;
@@ -39,14 +31,13 @@
   color: rgb(253, 151, 31);
 }
 .introText {
-  font-size: 4rem;
   font-weight: 700;
 }
 .introParagraf {
   font-size: medium;
-  font-weight: 300;
+  font-weight: 200;
 }
-.btn {
+.introBtn {
   display: flex;
   align-items: flex-start;
   background: white;
@@ -57,13 +48,13 @@
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btn:hover {
+.introBtn:hover {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   scale: 1.02;
 }
-.btnImg {
+.introBtnImg {
   height: 1rem;
   width: 1rem;
   margin: 0 0.25rem;
@@ -71,13 +62,24 @@
   color: #000;
   stroke: #000;
 }
+.portfolioImg {
+  position: absolute;
+  top: 20rem;
+  right: 10rem;
+  z-index: -1;
+  object-fit: cover;
+  height: 30vh;
+  border-radius: 30%;
+}
+
 @media screen and (max-width: 768px) {
-  .bg {
+  .portfolioImg {
     right: 5vw;
-    top: 15rem;
+    top: 7rem;
   }
-  .introContent {
-    font-size: 10vw;
+
+  .introText {
+    font-size: 3.2rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -93,8 +95,8 @@
   .introParagraf {
     font-size: 0.9rem;
   }
-  .bg {
-    right: -2vw;
+  .portfolioImg {
+    right: 1rem;
     top: 5rem;
     height: 25vh;
   }
