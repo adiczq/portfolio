@@ -12,8 +12,8 @@
 }
 .myPortfolioTitle {
   color: rgb(253, 151, 31);
-  margin: 1rem 0;
-  font-size: 3rem;
+  padding-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 .myPortfolioDesc {
   text-align: justify;

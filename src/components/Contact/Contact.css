@@ -11,8 +11,8 @@
 }
 .contactPageTitle {
   color: rgb(253, 151, 31);
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  padding-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 .contactDesc {
   padding: 1rem;
