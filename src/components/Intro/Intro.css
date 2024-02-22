@@ -35,7 +35,11 @@
   font-size: medium;
   font-weight: 200;
 }
+.introBtnCont {
+  display: flex;
+}
 .introBtn {
+  max-width: 12rem;
   display: flex;
   align-items: flex-start;
   background: white;
@@ -59,6 +63,13 @@
   fill: rgb(253, 151, 31);
   color: #000;
   stroke: #000;
+}
+.introBtnCV {
+  height: 1.1rem;
+  width: 1.1rem;
+  margin: 0 0.25rem;
+  fill: #000;
+  stroke: rgb(253, 151, 31);
 }
 .portfolioImg {
   position: absolute;
