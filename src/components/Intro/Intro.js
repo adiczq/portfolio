@@ -54,7 +54,7 @@ const Intro = () => {
               </button>
             </Link>
             <a
-              href="https://drive.google.com/file/d/1zzjx2KKEDI53TPMg5QmKxMlcISGX8xCs/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1qfK8nbZKhZznpleh-9VCNqQXn9K1ZQl1/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
