@@ -3,8 +3,7 @@ import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import FacebokIcon from "../../assets/facebook.png";
 import TwitterIcon from "../../assets/twitter.png";
-import YouTubeIcon from "../../assets/youtube.png";
-import InstagramIcon from "../../assets/instagram.png";
+import LinkedinIcon from "../../assets/linkedin.png";
 import Github from "../../assets/github-logo.png";
 
 const Contact = () => {
@@ -66,6 +65,13 @@ const Contact = () => {
           Submit
         </button>
         <div className="links">
+          <a
+            href="https://www.linkedin.com/in/adrian-lacheta-633270182/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={LinkedinIcon} alt="Linkedin Icon" className="link" />
+          </a>
           <a href="https://github.com/adiczq" target="_blank" rel="noreferrer">
             <img src={Github} alt="Github Icon" className="link" />
           </a>
@@ -82,20 +88,6 @@ const Contact = () => {
             rel="noreferrer"
           >
             <img src={TwitterIcon} alt="Twitter Icon" className="link" />
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCdKmLsG9BfA-TFOcacs9L_w"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={YouTubeIcon} alt="YouTube Icon" className="link" />
-          </a>
-          <a
-            href="https://www.instagram.com/adiczq88/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={InstagramIcon} alt="Instagram Icon" className="link" />
           </a>
         </div>
       </form>
