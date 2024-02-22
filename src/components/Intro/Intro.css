@@ -101,6 +101,17 @@
   .introContent {
     padding-top: 0;
   }
+  .introBtn {
+    align-items: center;
+  }
+  .introBtnImg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  .introBtnCV {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
   .introParagraf {
     font-size: 0.9rem;
   }
