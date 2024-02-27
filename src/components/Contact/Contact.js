@@ -22,7 +22,8 @@ const Contact = () => {
         },
         (error) => {
           console.log("FAILED...", error.text);
-        }
+        },
+        form.current.reset()
       );
   };
 
