@@ -56,6 +56,48 @@
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   scale: 1.03;
 }
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  animation: toastFade 3s ease forwards;
+}
+
+.toast.success {
+  background-color: #2e7d32;
+}
+
+.toast.error {
+  background-color: #c62828;
+}
+
+@keyframes toastFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;

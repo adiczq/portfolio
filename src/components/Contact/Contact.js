@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import FacebokIcon from "../../assets/facebook.png";
@@ -8,22 +8,40 @@ import Github from "../../assets/github-logo.png";
 
 const Contact = () => {
   const form = useRef();
+  const [toast, setToast] = useState({ text: "", type: "" });
+
+  const showToast = (text, type) => {
+    setToast({ text, type });
+
+    setTimeout(() => {
+      setToast({ text: "", type: "" });
+    }, 3000);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const name = form.current.from_name.value.trim();
+    const email = form.current.from_email.value.trim();
+    const messageText = form.current.message.value.trim();
+
+    if (!name || !email || !messageText) {
+      showToast("All fields are required.", "error");
+      return;
+    }
+
     emailjs
-      .sendForm("service_hr2nzec", "template_dsnsgj7", form.current, {
+      .sendForm("service_rc9nse1", "template_dsnsgj7", form.current, {
         publicKey: "BBcLZfHjeG9FF0mQh",
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          showToast("Message sent successfully!", "success");
+          form.current.reset();
         },
-        (error) => {
-          console.log("FAILED...", error.text);
-        },
-        form.current.reset()
+        () => {
+          showToast("Something went wrong. Try again.", "error");
+        }
       );
   };
 
@@ -65,6 +83,7 @@ const Contact = () => {
         <button type="submit" value="Send" className="formSubmitBtn">
           Submit
         </button>
+
         <div className="links">
           <a
             href="https://www.linkedin.com/in/adrian-lacheta-633270182/"
@@ -92,6 +111,7 @@ const Contact = () => {
           </a>
         </div>
       </form>
+      {toast.text && <div className={`toast ${toast.type}`}>{toast.text}</div>}
     </section>
   );
 };
