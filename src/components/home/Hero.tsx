@@ -159,7 +159,7 @@ export default function Hero() {
           <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
             <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
 
-            <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
               Location
             </p>
 
@@ -188,7 +188,7 @@ export default function Hero() {
           <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
             <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
 
-            <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
               Experience
             </p>
 
@@ -202,7 +202,7 @@ export default function Hero() {
           <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
             <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
 
-            <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
               Focus
             </p>
 
@@ -219,7 +219,7 @@ export default function Hero() {
           <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
             <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
 
-            <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
               Stack
             </p>
 
