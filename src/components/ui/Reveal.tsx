@@ -28,6 +28,8 @@ export default function Reveal({
             return;
         }
 
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
@@ -36,8 +38,10 @@ export default function Reveal({
                 observer.disconnect();
             },
             {
-                threshold: 0.15,
-                rootMargin: "0px 0px -100px 0px",
+                threshold: isMobile ? 0.03 : 0.15,
+                rootMargin: isMobile
+                    ? "0px 0px -20px 0px"
+                    : "0px 0px -100px 0px",
             },
         );
 
@@ -55,7 +59,7 @@ export default function Reveal({
             }}
             className={`transition-[opacity,transform] ease-[cubic-bezier(0.22,1,0.36,1)] ${visible
                     ? "translate-y-0 opacity-100"
-                    : "translate-y-14 opacity-0"
+                    : "translate-y-10 opacity-0 sm:translate-y-14"
                 }`}
         >
             {children}

@@ -118,7 +118,14 @@ export default function About() {
                         >
                             GitHub ↗
                         </a>
-
+                        <a
+                            href="https://www.linkedin.com/in/adrian-lacheta-633270182/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                        >
+                            LinkedIn ↗
+                        </a>
                         <a
                             href="#contact"
                             className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"

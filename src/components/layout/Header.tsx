@@ -15,7 +15,7 @@ export default function Header() {
           onClick={closeMenu}
           className="font-[var(--font-manrope)] text-lg font-bold tracking-[-0.04em]"
         >
-          ADRIAN<span className="text-[var(--accent)]">.</span>
+          ADICZQ<span className="text-[var(--accent)]">.</span>
         </a>
 
         <nav className="hidden items-center gap-8 text-sm text-white/60 md:flex">
@@ -69,8 +69,8 @@ export default function Header() {
 
       <div
         className={`overflow-hidden border-white/10 bg-[#0a0a0a] transition-all duration-300 md:hidden ${menuOpen
-            ? "max-h-[360px] border-t opacity-100"
-            : "max-h-0 border-t-0 opacity-0"
+          ? "max-h-[360px] border-t opacity-100"
+          : "max-h-0 border-t-0 opacity-0"
           }`}
       >
         <nav className="mx-auto flex max-w-[1440px] flex-col px-6 py-6">

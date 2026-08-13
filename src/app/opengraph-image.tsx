@@ -33,7 +33,7 @@ export default function OpenGraphImage() {
                         fontWeight: 700,
                     }}
                 >
-                    ADRIAN
+                    ADICZQ
                     <span style={{ color: "#b7ff3c" }}>.</span>
                 </div>
 

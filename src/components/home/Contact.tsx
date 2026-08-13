@@ -78,8 +78,8 @@ export default function Contact() {
                                 type="button"
                                 onClick={copyEmail}
                                 className={`min-w-[140px] rounded-full px-6 py-3 text-sm font-semibold transition duration-300 ${copied
-                                        ? "bg-[var(--accent)] text-black"
-                                        : "border border-white/15 text-white hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                                    ? "bg-[var(--accent)] text-black"
+                                    : "border border-white/15 text-white hover:border-[var(--accent)] hover:text-[var(--accent)]"
                                     }`}
                             >
                                 {copied ? "Copied ✓" : "Copy email"}
@@ -115,7 +115,14 @@ export default function Contact() {
                         >
                             GitHub ↗
                         </a>
-
+                        <a
+                            href="https://www.linkedin.com/in/adrian-lacheta-633270182/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="transition hover:text-white"
+                        >
+                            LinkedIn ↗
+                        </a>
                         <a
                             href="#home"
                             className="transition hover:text-white"
