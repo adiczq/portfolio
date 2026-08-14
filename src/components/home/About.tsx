@@ -20,7 +20,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="overflow-hidden border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36"
+            className="relative overflow-hidden border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36"
         >
             <div className="mx-auto max-w-[1440px]">
                 {/* HEADER */}
@@ -34,15 +34,13 @@ export default function About() {
                     <div>
                         <h2 className="max-w-5xl font-[var(--font-manrope)] text-4xl font-semibold leading-[1.05] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
                             I enjoy figuring out
-                            <span className="block text-white/35">
-                                how things work.
-                            </span>
+                            <span className="block text-white/35">how things work.</span>
                         </h2>
 
                         <div className="mt-10 grid gap-8 text-base leading-8 text-white/45 md:grid-cols-2">
                             <p>
-                                I&apos;m Adrian Lacheta, a developer based in Rybnik, Poland.
-                                My background combines software development with many years of
+                                I&apos;m Adrian Lacheta, a developer based in Rybnik, Poland. My
+                                background combines software development with many years of
                                 experience in manufacturing, CNC programming and engineering.
                             </p>
 
@@ -56,22 +54,22 @@ export default function About() {
                 </div>
 
                 {/* PRINCIPLES */}
-                <div className="mt-16 grid overflow-hidden rounded-[28px] border border-white/10 lg:grid-cols-3">
+                <div className="mt-16 grid overflow-hidden rounded-[28px] border border-white/10 bg-black/25 backdrop-blur-xl lg:grid-cols-3">
                     {principles.map((item) => (
                         <div
                             key={item.number}
-                            className="group relative min-h-[280px] overflow-hidden border-b border-white/10 bg-[#0d0d0d] p-7 transition duration-500 last:border-b-0 hover:bg-[#111] sm:p-9 lg:border-b-0 lg:border-r lg:last:border-r-0"
+                            className="group relative min-h-[280px] overflow-hidden border-b border-white/10 bg-black/40 p-7 transition duration-500 last:border-b-0 hover:bg-black/50 sm:p-9 lg:border-b-0 lg:border-r lg:last:border-r-0"
                         >
                             {/* glow */}
                             <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-[var(--accent)]/0 blur-[70px] transition duration-700 group-hover:bg-[var(--accent)]/10" />
 
                             {/* number */}
                             <div className="relative flex items-center justify-between">
-                                <span className="font-[var(--font-manrope)] text-xs font-semibold tracking-[0.2em] text-white/25 transition duration-300 group-hover:text-[var(--accent)]">
+                                <span className="font-mono text-xs font-semibold tracking-[0.2em] text-white/25 transition duration-300 group-hover:text-[var(--accent)]">
                                     {item.number}
                                 </span>
 
-                                <span className="translate-x-[-5px] text-xl text-[var(--accent)] opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                                <span className="-translate-x-[5px] text-xl text-[var(--accent)] opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                                     ↗
                                 </span>
                             </div>
@@ -95,7 +93,7 @@ export default function About() {
                 {/* BOTTOM */}
                 <div className="mt-12 flex flex-col gap-8 border-t border-white/10 pt-8 sm:flex-row sm:items-end sm:justify-between">
                     <div className="max-w-2xl">
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                        <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/30">
                             Outside the code
                         </p>
 
@@ -109,26 +107,28 @@ export default function About() {
                         </p>
                     </div>
 
-                    <div className="flex shrink-0 gap-3">
+                    <div className="flex shrink-0 flex-wrap gap-3">
                         <a
                             href="https://github.com/adiczq"
                             target="_blank"
                             rel="noreferrer"
-                            className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                            className="rounded-full border border-white/15 bg-white/[0.02] px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/[0.04] hover:text-[var(--accent)]"
                         >
                             GitHub ↗
                         </a>
+
                         <a
                             href="https://www.linkedin.com/in/adrian-lacheta-633270182/"
                             target="_blank"
                             rel="noreferrer"
-                            className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                            className="rounded-full border border-white/15 bg-white/[0.02] px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/[0.04] hover:text-[var(--accent)]"
                         >
                             LinkedIn ↗
                         </a>
+
                         <a
                             href="#contact"
-                            className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                            className="rounded-full border border-white/15 bg-white/[0.02] px-5 py-2.5 text-sm font-medium transition duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/[0.04] hover:text-[var(--accent)]"
                         >
                             Contact me
                         </a>

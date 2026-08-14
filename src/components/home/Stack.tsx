@@ -17,8 +17,7 @@ const groups = [
     {
         number: "02",
         title: "Backend",
-        description:
-            "APIs, authentication, databases and application logic.",
+        description: "APIs, authentication, databases and application logic.",
         items: [
             "Node.js",
             "Express",
@@ -33,20 +32,13 @@ const groups = [
         title: "Workflow",
         description:
             "Tools I use to build, test, deploy and maintain projects.",
-        items: [
-            "Git",
-            "GitHub",
-            "Vercel",
-            "Netlify",
-            "Postman",
-            "VS Code",
-        ],
+        items: ["Git", "GitHub", "Vercel", "Netlify", "Postman", "VS Code"],
     },
 ];
 
 export default function Stack() {
     return (
-        <section className="overflow-hidden border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36">
+        <section className="relative overflow-hidden border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36">
             <div className="mx-auto max-w-[1440px]">
                 <div className="mb-12 grid gap-8 sm:mb-14 lg:mb-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
                     <div>
@@ -68,14 +60,14 @@ export default function Stack() {
                     </p>
                 </div>
 
-                <div className="overflow-hidden rounded-[24px] border border-white/10 sm:rounded-[28px]">
+                <div className="overflow-hidden rounded-[24px] border border-white/10 bg-black/30 backdrop-blur-xl sm:rounded-[28px]">
                     {groups.map((group, index) => (
                         <div
                             key={group.title}
-                            className="group border-b border-white/10 bg-[#0d0d0d] last:border-b-0"
+                            className="group border-b border-white/10 bg-black/35 transition duration-500 hover:bg-black/45 last:border-b-0"
                         >
                             <div className="grid lg:grid-cols-[340px_1fr]">
-                                <div className="relative border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r">
+                                <div className="relative border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:border-white/10">
                                     <div className="flex items-start gap-5">
                                         <span className="pt-1 font-[var(--font-manrope)] text-xs font-semibold tracking-[0.2em] text-[var(--accent)]">
                                             {group.number}
@@ -96,9 +88,10 @@ export default function Stack() {
                                 </div>
 
                                 <div className="relative flex min-h-[110px] items-center overflow-hidden sm:min-h-[140px] lg:min-h-[150px]">
-                                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-gradient-to-r from-[#0d0d0d] to-transparent sm:w-16" />
+                                    {/* Soft fades instead of solid background */}
+                                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-gradient-to-r from-black/70 via-black/35 to-transparent sm:w-16" />
 
-                                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-gradient-to-l from-[#0d0d0d] to-transparent sm:w-16" />
+                                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-gradient-to-l from-black/70 via-black/35 to-transparent sm:w-16" />
 
                                     <div
                                         className={`tech-marquee-track ${index === 1 ? "tech-marquee-reverse" : ""

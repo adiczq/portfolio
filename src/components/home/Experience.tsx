@@ -33,7 +33,7 @@ export default function Experience() {
     return (
         <section
             id="experience"
-            className="border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36"
+            className="relative border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-36"
         >
             <div className="mx-auto max-w-[1440px]">
                 <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
@@ -44,9 +44,7 @@ export default function Experience() {
 
                         <h2 className="max-w-2xl font-[var(--font-manrope)] text-4xl font-semibold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
                             More than
-                            <span className="block text-white/35">
-                                just code.
-                            </span>
+                            <span className="block text-white/35">just code.</span>
                         </h2>
 
                         <p className="mt-8 max-w-lg text-base leading-8 text-white/45">
@@ -61,7 +59,7 @@ export default function Experience() {
                             that works reliably in the real world.
                         </p>
 
-                        <div className="mt-10 inline-flex items-center gap-4 rounded-full border border-white/10 px-5 py-3">
+                        <div className="mt-10 inline-flex items-center gap-4 rounded-full border border-white/10 bg-black/20 px-5 py-3 backdrop-blur-md">
                             <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
 
                             <span className="text-sm text-white/55">
@@ -77,9 +75,9 @@ export default function Experience() {
                             {timeline.map((item) => (
                                 <div
                                     key={item.number}
-                                    className="group relative grid gap-5 rounded-2xl border border-white/10 bg-[#0d0d0d] p-6 transition duration-300 hover:border-white/20 sm:grid-cols-[48px_1fr_auto] sm:items-center sm:p-7"
+                                    className="group relative grid gap-5 rounded-2xl border border-white/10 bg-black/50 p-6 backdrop-blur-xl transition duration-300 hover:border-[var(--accent)]/20 hover:bg-black/60 sm:grid-cols-[48px_1fr_auto] sm:items-center sm:p-7"
                                 >
-                                    <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#0a0a0a] font-[var(--font-manrope)] text-sm font-semibold text-white/45 transition duration-300 group-hover:border-[var(--accent)]/40 group-hover:text-[var(--accent)]">
+                                    <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/55 font-[var(--font-manrope)] text-sm font-semibold text-white/45 backdrop-blur-md transition duration-300 group-hover:border-[var(--accent)]/40 group-hover:text-[var(--accent)]">
                                         {item.number}
                                     </div>
 
@@ -93,17 +91,19 @@ export default function Experience() {
                                         </p>
                                     </div>
 
-                                    <span className="w-fit rounded-full border border-white/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-white/30 transition group-hover:text-white/50">
+                                    <span className="w-fit rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] text-white/30 transition group-hover:border-white/15 group-hover:text-white/50">
                                         {item.label}
                                     </span>
+
+                                    <span className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
-                    <div className="bg-[#0d0d0d] p-6 sm:p-7">
+                <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl sm:grid-cols-3">
+                    <div className="bg-black/50 p-6 transition duration-300 hover:bg-black/60 sm:p-7">
                         <p className="text-xs uppercase tracking-[0.2em] text-white/30">
                             Mindset
                         </p>
@@ -113,7 +113,7 @@ export default function Experience() {
                         </p>
                     </div>
 
-                    <div className="bg-[#0d0d0d] p-6 sm:p-7">
+                    <div className="bg-black/50 p-6 transition duration-300 hover:bg-black/60 sm:p-7">
                         <p className="text-xs uppercase tracking-[0.2em] text-white/30">
                             Approach
                         </p>
@@ -123,7 +123,7 @@ export default function Experience() {
                         </p>
                     </div>
 
-                    <div className="bg-[#0d0d0d] p-6 sm:p-7">
+                    <div className="bg-black/50 p-6 transition duration-300 hover:bg-black/60 sm:p-7">
                         <p className="text-xs uppercase tracking-[0.2em] text-white/30">
                             Direction
                         </p>

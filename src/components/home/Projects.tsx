@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-32"
+      className="relative border-t border-white/10 px-6 py-20 sm:py-28 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-[1440px]">
         <div className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -31,14 +31,14 @@ export default function Projects() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group overflow-hidden rounded-[24px] border border-white/10 bg-[#0d0d0d] transition duration-500 hover:border-white/20 sm:rounded-[28px]"
+              className="group overflow-hidden rounded-[24px] border border-white/10 bg-black/55 backdrop-blur-xl transition duration-500 hover:border-[var(--accent)]/20 hover:bg-black/65 sm:rounded-[28px]"
             >
               <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
                 {/* PROJECT IMAGE */}
-                <div className="relative bg-[#121212] p-4 sm:p-6 lg:p-7">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0a] shadow-2xl sm:rounded-2xl">
+                <div className="relative bg-white/[0.025] p-4 sm:p-6 lg:p-7">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-black/70 shadow-2xl sm:rounded-2xl">
                     {/* Browser top bar */}
-                    <div className="absolute left-0 right-0 top-0 z-20 flex h-10 items-center gap-2 border-b border-white/10 bg-[#181818] px-4">
+                    <div className="absolute left-0 right-0 top-0 z-20 flex h-10 items-center gap-2 border-b border-white/10 bg-black/75 px-4 backdrop-blur-xl">
                       <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                       <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                       <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -55,7 +55,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="absolute left-2 top-2 z-30 rounded-full border border-white/10 bg-black/80 px-3 py-1.5 text-[11px] font-bold tracking-[0.15em] backdrop-blur-md sm:left-4 sm:top-4">
+                  <div className="absolute left-2 top-2 z-30 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-[11px] font-bold tracking-[0.15em] backdrop-blur-md sm:left-4 sm:top-4">
                     {project.number}
                   </div>
                 </div>
@@ -74,7 +74,7 @@ export default function Projects() {
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/50 transition group-hover:border-white/15 group-hover:text-white/65"
+                        className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-xs text-white/50 transition group-hover:border-white/15 group-hover:text-white/65"
                       >
                         {item}
                       </span>
@@ -89,7 +89,7 @@ export default function Projects() {
                   >
                     View project
 
-                    <span className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    <span className="transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
                       ↗
                     </span>
                   </a>

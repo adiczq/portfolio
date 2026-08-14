@@ -2,58 +2,42 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const cities = [
-  "Katowice",
-  "Berlin",
-  "Prague",
-  "London",
-  "Warsaw",
-  "Kraków",
-  "Rybnik",
-];
-
-const countries = [
-  "Germany",
-  "Czechia",
-  "United Kingdom",
-  "Poland",
-  "Germany",
-  "Czechia",
-  "Poland",
+const locations = [
+  "Berlin · Germany",
+  "Prague · Czechia",
+  "London · United Kingdom",
+  "Warsaw · Poland",
+  "Kraków · Poland",
+  "Katowice · Poland",
+  "Rybnik · Poland",
 ];
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
   const [experience, setExperience] = useState(0);
-
-  const [city, setCity] = useState("Rybnik");
-  const [country, setCountry] = useState("Poland");
-
-  const statsRef = useRef<HTMLDivElement | null>(null);
-  const animated = useRef(false);
+  const [locationIndex, setLocationIndex] = useState(0);
+  const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    const node = statsRef.current;
+    const section = sectionRef.current;
 
-    if (!node) return;
+    if (!section) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || animated.current) return;
+        if (!entry.isIntersecting || animated) return;
 
-        animated.current = true;
+        setAnimated(true);
 
-        /*
-         * EXPERIENCE COUNTER
-         */
-        const target = 16;
         const duration = 1200;
         const start = performance.now();
 
-        const animateExperience = (currentTime: number) => {
-          const progress = Math.min((currentTime - start) / duration, 1);
+        const animateExperience = (time: number) => {
+          const progress = Math.min((time - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
 
-          setExperience(Math.round(target * eased));
+          setExperience(Math.round(16 * eased));
 
           if (progress < 1) {
             requestAnimationFrame(animateExperience);
@@ -62,178 +46,303 @@ export default function Hero() {
 
         requestAnimationFrame(animateExperience);
 
-        /*
-         * LOCATION SLOT MACHINE
-         */
-        let step = 0;
+        const delays = [90, 100, 120, 150, 190, 250, 360];
 
-        const spinLocation = () => {
-          if (step >= cities.length) {
-            setCity("Rybnik");
-            setCountry("Poland");
-            return;
-          }
+        let timeout = 0;
 
-          setCity(cities[step]);
-          setCountry(countries[step]);
+        delays.forEach((delay, index) => {
+          timeout += delay;
 
-          step += 1;
+          window.setTimeout(() => {
+            setLocationIndex(index);
+          }, timeout);
+        });
 
-          // Maszyna stopniowo zwalnia
-          const delay = 70 + step * 35;
-
-          window.setTimeout(spinLocation, delay);
-        };
-
-        spinLocation();
+        observer.disconnect();
       },
       {
-        threshold: 0.4,
+        threshold: 0.2,
       },
     );
 
-    observer.observe(node);
+    observer.observe(section);
 
     return () => observer.disconnect();
-  }, []);
+  }, [animated]);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden pt-20">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px]" />
+    <section
+      ref={sectionRef}
+      id="home"
+      className="relative min-h-screen overflow-hidden px-6 pb-20 pt-28 text-white lg:px-10 lg:pb-20 lg:pt-24"
+    >
+      <div className="mx-auto grid min-h-[calc(100vh-112px)] max-w-[1440px] items-center gap-14 lg:min-h-[calc(100vh-96px)] lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="max-w-5xl">
+          {/* MOBILE TERMINAL */}
+          <div className="mb-10 overflow-hidden rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl lg:hidden">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-white/15" />
+                <span className="h-2 w-2 rounded-full bg-white/10" />
+                <span className="h-2 w-2 rounded-full bg-white/10" />
 
-      {/* Background glow */}
-      <div className="absolute right-[-200px] top-[180px] h-[600px] w-[600px] rounded-full bg-[var(--accent)]/8 blur-[150px]" />
+                <span className="ml-2 font-mono text-[10px] text-white/25">
+                  ~/portfolio
+                </span>
+              </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1440px] flex-col justify-center px-6 py-16 sm:py-20 lg:px-10">
-        {/* Top location */}
-        <div className="mb-7 flex items-center gap-4 sm:mb-8">
-          <span className="h-px w-10 bg-[var(--accent)] sm:w-12" />
+              <div className="flex items-center gap-2 font-mono text-[10px] text-white/30">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-40" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                </span>
 
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--accent)] sm:text-xs sm:tracking-[0.28em]">
-            Rybnik · Poland
-          </span>
-        </div>
+                ready
+              </div>
+            </div>
 
-        {/* Hero title */}
-        <h1 className="max-w-[1150px] font-[var(--font-manrope)] text-[44px] font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[96px] lg:leading-[0.95]">
-          Frontend developer
-          <span className="block text-white/35">
-            with an engineering mindset.
-          </span>
-        </h1>
+            <div className="p-4 font-mono text-xs leading-6">
+              <p className="text-white/25">
+                <span className="text-[var(--accent)]">$</span> whoami
+              </p>
 
-        {/* Text + CTA */}
-        <div className="mt-8 flex max-w-4xl flex-col gap-8 sm:mt-10 lg:flex-row lg:items-end lg:justify-between">
-          <p className="max-w-xl text-base leading-7 text-white/55 sm:text-lg">
-            I&apos;m Adrian Lacheta. I build modern web experiences using
-            React, Next.js and TypeScript, combining software development with
-            years of technical and manufacturing experience.
+              <p className="mt-1 text-white/65">Adrian Lacheta</p>
+
+              <div className="mt-4 flex items-center gap-2 text-white/35">
+                <span className="text-[var(--accent)]">&gt;</span>
+
+                <span>frontend.dev</span>
+
+                <span className="h-3.5 w-[6px] animate-pulse bg-[var(--accent)]/70" />
+              </div>
+            </div>
+          </div>
+
+          {/* DESKTOP LOCATION */}
+          <div className="mb-8 hidden items-center gap-4 lg:flex">
+            <span className="h-px w-12 bg-[var(--accent)]" />
+
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-50" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
+              </span>
+
+              <span
+                key={locationIndex}
+                className="slot-value font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]"
+              >
+                {locations[locationIndex]}
+              </span>
+            </div>
+          </div>
+
+          {/* MOBILE SMALL LABEL */}
+          <div className="mb-5 flex items-center gap-3 lg:hidden">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)]">
+              01 / Developer
+            </span>
+
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+
+          {/* HEADING */}
+          <h1 className="max-w-5xl font-[var(--font-manrope)] text-[58px] font-semibold leading-[0.88] tracking-[-0.06em] sm:text-7xl lg:text-[88px] lg:leading-[0.92] lg:tracking-[-0.055em]">
+            Frontend
+            <span className="block">
+              developer
+              <span className="text-[var(--accent)] lg:hidden">_</span>
+            </span>
+
+            <span className="mt-4 block text-[25px] leading-[1.05] tracking-[-0.04em] text-white/30 sm:text-4xl lg:mt-0 lg:text-[88px] lg:leading-[0.92] lg:tracking-[-0.055em]">
+              with an engineering mindset.
+            </span>
+          </h1>
+
+          {/* TEXT */}
+          <p className="mt-8 max-w-2xl text-base leading-7 text-white/50 sm:text-lg sm:leading-8 lg:mt-10 lg:text-xl lg:leading-9">
+            I&apos;m Adrian Lacheta. I build modern web experiences using React,
+            Next.js and TypeScript, combining software development with years
+            of technical and manufacturing experience.
           </p>
 
-          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+          {/* MOBILE CTA */}
+          <div className="mt-9 flex items-center gap-6 lg:hidden">
             <a
               href="#projects"
-              className="rounded-full bg-[var(--accent)] px-6 py-3 text-center text-sm font-semibold text-black transition duration-300 hover:scale-[1.03]"
+              className="group flex min-h-14 items-center justify-center gap-3 rounded-xl bg-[var(--accent)] px-6 text-sm font-semibold text-black transition-transform duration-300 active:scale-[0.98]"
             >
               View projects
+
+              <span>↓</span>
             </a>
 
             <a
               href="https://github.com/adiczq"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold transition duration-300 hover:border-white/40"
+              className="font-mono text-sm text-white/45 transition hover:text-[var(--accent)]"
             >
               GitHub ↗
             </a>
           </div>
+
+          {/* MOBILE STACK */}
+          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 border-t border-white/10 pt-5 font-mono text-[11px] text-white/30 lg:hidden">
+            <span>React</span>
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Node.js</span>
+          </div>
+
+          {/* MOBILE STATS */}
+          <div className="mt-8 grid grid-cols-2 overflow-hidden rounded-2xl border border-white/10 bg-black/30 backdrop-blur-xl lg:hidden">
+            {/* LOCATION */}
+            <div className="relative min-h-[118px] border-b border-r border-white/10 p-5">
+              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+                Location
+              </span>
+
+              <div className="mt-4 flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-40" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                </span>
+
+                <p
+                  key={locationIndex}
+                  className="slot-value font-mono text-sm font-medium text-white/70"
+                >
+                  {locations[locationIndex]}
+                </p>
+              </div>
+
+              <span className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-[var(--accent)]/30 to-transparent" />
+            </div>
+
+            {/* EXPERIENCE */}
+            <div className="relative min-h-[118px] border-b border-white/10 p-5">
+              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+                Experience
+              </span>
+
+              <p className="mt-3 font-mono text-4xl font-semibold tracking-[-0.06em]">
+                {experience}
+                <span className="text-[var(--accent)]">+</span>
+              </p>
+
+              <p className="mt-1 font-mono text-[10px] text-white/25">
+                technical years
+              </p>
+            </div>
+
+            {/* FOCUS */}
+            <div className="relative min-h-[110px] border-r border-white/10 p-5">
+              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+                Focus
+              </span>
+
+              <p className="mt-4 text-sm font-semibold">
+                Frontend
+                <span className="block text-white/30">Full-stack</span>
+              </p>
+            </div>
+
+            {/* STACK */}
+            <div className="relative min-h-[110px] p-5">
+              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+                Stack
+              </span>
+
+              <p className="mt-4 text-sm font-semibold">
+                Next.js
+                <span className="block text-white/30">TypeScript</span>
+              </p>
+
+              <span className="absolute bottom-5 right-5 h-1.5 w-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_12px_var(--accent)]" />
+            </div>
+          </div>
+
+          {/* DESKTOP CTA */}
+          <div className="mt-10 hidden gap-4 sm:flex lg:flex">
+            <a
+              href="#projects"
+              className="group flex min-h-16 items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-9 font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
+            >
+              View projects
+
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                ↓
+              </span>
+            </a>
+
+            <a
+              href="https://github.com/adiczq"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex min-h-16 items-center justify-center gap-3 rounded-full border border-white/15 px-9 font-semibold text-white transition-all duration-300 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.04]"
+            >
+              GitHub
+
+              <span className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+                ↗
+              </span>
+            </a>
+          </div>
         </div>
 
-        {/* Stats */}
-        <div
-          ref={statsRef}
-          className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {/* LOCATION */}
-          <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
-            <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
-
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
+        {/* DESKTOP STATS */}
+        <div className="hidden grid-cols-2 border-l border-t border-white/10 lg:grid">
+          <div className="group relative min-h-40 border-b border-r border-white/10 p-8">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
               Location
+            </span>
+
+            <p className="mt-5 text-xl font-semibold">
+              Rybnik
+              <span className="block text-white/35">Poland</span>
             </p>
 
-            <div className="mt-3 flex items-center gap-3">
-              <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-40" />
-
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
-              </span>
-
-              <div className="flex items-center gap-2 overflow-hidden font-medium">
-                <span key={city} className="slot-value">
-                  {city}
-                </span>
-
-                <span className="text-white/25">·</span>
-
-                <span key={country} className="slot-value">
-                  {country}
-                </span>
-              </div>
-            </div>
+            <span className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
           </div>
 
-          {/* EXPERIENCE */}
-          <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
-            <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
-
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
+          <div className="group relative min-h-40 border-b border-r border-white/10 p-8">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
               Experience
+            </span>
+
+            <p className="mt-4 font-mono text-5xl font-semibold tracking-[-0.05em]">
+              {experience}
+              <span className="text-[var(--accent)]">+</span>
             </p>
 
-            <p className="mt-3 font-[var(--font-manrope)] font-medium">
-              <span className="text-[var(--accent)]">{experience}+</span>{" "}
-              years technical
-            </p>
+            <span className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
           </div>
 
-          {/* FOCUS */}
-          <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
-            <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
-
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
+          <div className="group relative min-h-40 border-b border-r border-white/10 p-8">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
               Focus
+            </span>
+
+            <p className="mt-5 text-xl font-semibold">
+              Frontend
+              <span className="block text-white/35">Full-stack</span>
             </p>
 
-            <div className="mt-3 flex items-center gap-3">
-              <p className="font-medium">Frontend / Full-stack</p>
-
-              <span className="text-[var(--accent)] transition duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </div>
+            <span className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
           </div>
 
-          {/* STACK */}
-          <div className="group relative overflow-hidden bg-[#0d0d0d] p-5 transition duration-300 hover:bg-[#111] sm:p-6">
-            <div className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
-
-            <p className="text-xs uppercase tracking-[0.2em] text-white/50">
+          <div className="group relative min-h-40 border-b border-r border-white/10 p-8">
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
               Stack
+            </span>
+
+            <p className="mt-5 text-xl font-semibold transition-colors duration-300 group-hover:text-[var(--accent)]">
+              Next.js
+              <span className="block text-white/35">TypeScript</span>
             </p>
 
-            <div className="mt-3 flex items-center gap-2 font-medium">
-              <span className="transition duration-300 group-hover:text-[var(--accent)]">
-                Next.js
-              </span>
-
-              <span className="text-white/25">·</span>
-
-              <span className="transition delay-75 duration-300 group-hover:text-[var(--accent)]">
-                TypeScript
-              </span>
-            </div>
+            <span className="absolute bottom-0 left-0 h-px w-0 bg-[var(--accent)] transition-all duration-500 group-hover:w-full" />
           </div>
         </div>
       </div>

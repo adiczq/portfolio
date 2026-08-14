@@ -7,10 +7,7 @@ type RevealProps = {
     delay?: number;
 };
 
-export default function Reveal({
-    children,
-    delay = 0,
-}: RevealProps) {
+export default function Reveal({ children, delay = 0 }: RevealProps) {
     const ref = useRef<HTMLDivElement | null>(null);
     const [visible, setVisible] = useState(false);
 
@@ -38,9 +35,9 @@ export default function Reveal({
                 observer.disconnect();
             },
             {
-                threshold: isMobile ? 0.03 : 0.15,
+                threshold: isMobile ? 0.08 : 0.15,
                 rootMargin: isMobile
-                    ? "0px 0px -20px 0px"
+                    ? "0px 0px -70px 0px"
                     : "0px 0px -100px 0px",
             },
         );
@@ -55,11 +52,10 @@ export default function Reveal({
             ref={ref}
             style={{
                 transitionDelay: `${delay}ms`,
-                transitionDuration: "1400ms",
             }}
-            className={`transition-[opacity,transform] ease-[cubic-bezier(0.22,1,0.36,1)] ${visible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0 sm:translate-y-14"
+            className={`transition-[opacity,transform,filter] ease-[cubic-bezier(0.22,1,0.36,1)] duration-[950ms] sm:duration-[1400ms] ${visible
+                    ? "translate-y-0 scale-100 opacity-100 blur-0"
+                    : "translate-y-14 scale-[0.985] opacity-0 blur-[4px] sm:translate-y-14 sm:scale-100 sm:blur-0"
                 }`}
         >
             {children}
