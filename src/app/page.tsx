@@ -41,9 +41,7 @@ export default function Home() {
           </Reveal>
         </main>
 
-        <Reveal>
-          <Footer />
-        </Reveal>
+        <Footer />
       </div>
     </div>
   );
